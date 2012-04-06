@@ -20,7 +20,7 @@ jQuery(function($){
 	window.fbAsyncInit = function() {
 	    FB.init({appId: fbLogin.client_id, status: true, cookie: true, xfbml: true});
 	    FB.getLoginStatus(function(response){
-			if (response.session){
+			if (response.authResponse){
 				
 				// user is logged in and has allowed our application
 				// get the user's information
@@ -58,7 +58,7 @@ jQuery(function($){
 	
 	$('#fbLogin').live('click',function(){
 		FB.login(function(response){
-			if (response.session){
+			if (response.authResponse){
 				// user is logged in and has allowed our application
 				// get the user's information
 				FB.api('/me',function(response){
